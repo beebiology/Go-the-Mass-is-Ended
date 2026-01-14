@@ -1,0 +1,623 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family:'Gill Sans', Calibri, sans-serif;
+  font-weight: 300; /* normal, 700 is bold */
+  color: rgba(255, 255, 254, 0.9);
+  font-size: 18vh; 
+}
+
+a {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.9);
+  transition: font-size 1s ease-out;
+  cursor: pointer;
+}
+
+a:hover {
+  font-size: 0.85em;
+}
+
+/* SCENES, PEOPLE AND HORIZONTALS of MAIN PAGE */
+.room {
+  display: grid;
+  grid-template: 1fr 1fr / 2fr 2fr 3fr;
+  height: 100vh;
+  width: 100vw;
+
+  background: url("./pictures/horizontals/190,000 miles.jpeg") left;
+  background-size: fill;
+  overflow: hidden;
+}
+
+.scenes {
+  grid-area: 1 / 1 / span 2 / 2;
+  align-self: start;
+
+  justify-self: end;
+  margin-left: 1.8vw;
+
+  z-index: 3;
+}
+
+.people {
+  grid-area: 1 / 2 / span 2 / 3;
+  align-self: start;
+
+  justify-self: start;
+  margin-left: 2vw;
+
+  z-index: 2;
+}
+
+.scenes, .people, .horizontals {
+  box-shadow: 2px 2px 10px rgba(13, 12, 12, 0.8);
+  max-height: 86vh;
+  transform: translateY(4vh);
+  
+  filter: brightness(95%);
+  transition: filter 2s linear;
+}
+
+.horizontals {
+  grid-area: 1 / 2 / span 2 / 4;
+  max-height: 50vh;
+
+  align-self: start;
+  justify-self: end;
+  margin-right: 1vw;
+
+  z-index: 0;
+}
+
+.people:hover, .scenes:hover, .horizontals:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+}
+
+/* AUDIO AND TEXT of THE MAIN PAGE */
+.room audio {
+  grid-area: 2 / 3 / span 1 / span 1;
+  align-self: start;
+  justify-self: center;
+  transform: scale(0.8);
+
+  opacity: 5%;
+  z-index: 1;
+}
+
+.room audio:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.room h2  {
+  font-size: 0.38em;
+  grid-area: 2 / 1 / span 1 / span 1;
+  align-self: end;
+  margin-bottom: 2.2vh;
+
+  animation: scroll-text 4.5s;
+  animation-fill-mode: forwards;
+}
+
+.reload {
+  font-size: 0.22rem;
+}
+
+@keyframes scroll-text {
+  0% {transform: translateX(-100%);}
+  50% {transform: translateX(-90%);}
+  100% {transform: translateX(2vw);}
+}
+
+
+/* 365PARTYGIRL(videos) */
+.theater {
+  height: 100vh;
+  width: 100vw;
+
+  display: grid;
+  grid-template: 1fr / 30fr 70fr;
+
+  overflow: hidden;
+  background: url("pictures/30more/sunflowercropped.jpg") bottom;
+}
+
+.video {
+  grid-area: 1 / 2 / 2 / 3;
+  justify-self: center;
+
+  max-height: 75vh;
+  transform: translateX(2vw);
+}
+
+.theater h7 {
+  grid-area: 1 / 1 / 2 / 2;
+  justify-self: end;
+
+  font-size: 0.6rem;
+  line-height: 20vh;
+}
+
+.video:hover {
+  cursor: pointer;
+}
+
+.theater a {
+  border: 1px solid white;
+  padding: 3vw;
+  cursor: pointer;
+}
+
+
+/* UPDATED MY JOURNAL */
+  .journal {
+    display: grid;
+    grid: 80vh 20vh / 44vw 36vw 20vw;
+  }
+
+  #field {
+  grid-area: 1 / 2 / 2 / 3;
+  font-size: 0.28rem;
+
+  height: 100vh;
+  overflow: scroll;
+
+  width: 100%;
+  padding: 0.25rem 0.5rem 0rem 0.3rem;
+  white-space: pre-wrap;
+  z-index: 9;
+  background: url("pictures/loading/harp.png")top;
+}
+
+  #random {
+    grid-area: 2 / 3 / 3 / 4;
+    width: 14vw;
+    height: 10vh;
+    margin: 2vh 18vw 0vh 0vw;
+
+    font-size: 0.16rem;
+    cursor: pointer;
+
+    justify-self: center;
+    z-index: 10;
+    opacity: 90%;
+  }
+
+  #random:hover {
+    opacity: 100%;
+    transform: scale(1.01);
+  }
+
+ .pills {
+  grid-area: 1 / 2 / -1 / 4;
+  width: 100%;
+  height: 100%;
+  background: url("pictures/30more/journal\ copy.jpg");
+ }
+
+ .banner {
+  grid-area: 1 / 1 / -1 / 3;
+  background: url("pictures/30more/journalcropped.jpg");
+ }
+
+ .journal #click2 {
+  position: fixed;
+  left: -2vw;
+  bottom: -2.5vh;
+  width: 20%;
+  opacity: 60%;
+
+  cursor: pointer;
+  z-index: 10;
+ }
+
+ button h3 {
+  display: none;
+ }
+
+
+/* SPLASH DAMAGE*/
+.splash {
+  position: fixed;
+  inset: 0;
+
+  display: flex; 
+  justify-content: start;
+  align-items: center;
+  background: black;
+  width: 100vw;
+
+  z-index: 1000;
+  animation: reveal 600ms ease-in-out forwards 2s;
+}
+
+.splash img {
+  height: 65vh;
+  margin-left: 0vw;
+}
+
+.splash h1 {
+  font-size: 0.3em;
+  letter-spacing: 1.8vh;
+  padding-left: 10vh;
+
+  color: rgb(219, 218, 218);
+}
+
+@keyframes reveal {
+  0% {opacity: 1;}
+  100% {opacity: 0; visibility: hidden;}
+}
+
+.journalload {
+  position: fixed;
+  right: 0;
+}
+
+.splash img {
+  height: 65vh;
+  margin-left: 0vw;
+}
+
+.bluesky {
+  position: fixed;
+  inset: 0;
+
+  display: flex; 
+  justify-content: start;
+  align-items: center;
+  background: url("pictures/scenes/snowbound cropped.jpg") right;
+  background-size: cover;
+  width: 100vw;
+
+  font-size: 0.3em;
+  letter-spacing: 1.8vh;
+  padding-left: 10vh;
+
+  z-index: 1000;
+  animation: reveal 600ms ease-in-out forwards 2s;
+}
+
+.bluesky img {
+  width: 100vw;
+}
+
+/* AND THAT WASN'T EVEN MY FINAL FORM! */
+
+.audio {
+  height: 100vh;
+  width: 100vw;
+
+  display: grid;
+  grid-template: repeat(5, 20vh) / 11vw 11svw 11vw 11vw 56vw;
+
+  overflow: hidden;
+  background: url("pictures/scenes/snowbound cropped.jpg") right;
+  background-size: cover;
+  animation: reveal2 2s; 
+}
+
+.audio li {
+  cursor: pointer;
+  overflow-wrap: break-word;
+  padding: 1vh 0.5vw 1vh 1.5vw;
+}
+
+@keyframes reveal2 {
+  0% {opacity: 0;}
+  70% {opacity: 0};
+  100% {opacity: 1;}
+}
+.audio ul {
+  color: black;
+  background: white;
+
+  font-size: 0.11rem;
+  width: 100%;
+
+  overflow: scroll;
+  box-shadow: -1px 2px 10px rgba(13, 12, 12, 0.6);
+}
+
+#memoList1 li {
+  animation: reveal2 5.5s; 
+}
+
+#memoList2 li {
+  animation: reveal2 3.5s; 
+}
+
+#memoList3 li {
+  animation: reveal2 4.5s; 
+}
+
+#memoList1 {
+  grid-area: 1 / 2 / -1 / 3;
+  justify-self: start;
+  margin: 2vh 0vw 3vh 0vw;
+
+}
+#memoList2 {
+  grid-area: 1 / 3 / 5 / 4;
+  margin: 3vw 2vw 1vw 2vw; 
+  padding-right: 2vh;
+}
+#memoList3 {
+  grid-area: 2 / 4 / -1 / 5;
+  margin: 0 0vw 11vh 1vw;
+}
+
+#currentFile {
+  grid-area: 2 / 5 / 4 / -1;
+  font-size: 0.3rem;
+
+  max-height: 30vh;
+  max-width: 40vw;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+}
+
+#player {
+  grid-area: 3 / 5 / 4 / -1;
+
+  max-height: 15vh;
+  align-self: end;
+  justify-self: center;
+}
+
+.audio #random {
+  color: white;
+  grid-area: 4 / 5 / -1 / -1;
+  align-self: start;
+  justify-self: center;
+  
+  width: 12vw;
+  height: 8vh;
+  margin: 2vh 0vw 0vh 0vw;
+
+  font-size: 0.13rem;
+  border: 0px;
+  border-radius: 50%;
+
+  background: url("pictures/scenes/snowbound\ cropped.jpg") center;
+  background-size: cover;
+}
+
+/* THUMBNAILS (MINIMIZE ME LIKE THE IMPACT OF FOSSIL FUELS ON THE ENVIRONMENT) */
+  #click {
+  font-size: 0.14rem;
+  width: 12vw;
+  height: 7vh;
+
+  margin-left: 0.7vw;
+  opacity: 90%;
+  cursor: pointer;
+  }
+
+  #click2 {
+  position: fixed;
+  right: 12vw;
+  bottom: 5vh;
+
+  padding: 5vh 8vh 5vh 8vh;
+  opacity: 80%;
+
+  background: url("pictures/loading/fisheyeone.jpg") right;
+  background-size: cover;
+  }
+
+  .theater #click2 {
+  position: fixed;
+  right: -3vw;
+  bottom: -3vh;
+  width: 22%;
+
+  cursor: pointer;
+  z-index: 10;
+  }
+
+  .audio #click2 {
+  width: 22%;
+
+  transform: rotateX(180deg) translateX(-80vw) translateY(90vh);
+  cursor: pointer;
+  border-radius: 50%;
+  }
+
+  #click:hover, #click2:hover, #click3:hover {
+    opacity: 100%;
+  } #one {
+  background: url("videos/thumbnails/1.png") center;
+  background-size: cover;
+  margin-left: 1vw;
+} #two {
+  background: url("videos/thumbnails/2.png") center;
+  background-size: cover;
+  } #three {
+  background: url("videos/thumbnails/3.png") right;
+  background-size: cover;
+  margin-right: 1vw;
+  } #four {
+  background: url("videos/thumbnails/4.png") right;
+  background-size: cover;
+  } #five {
+  background: url("videos/thumbnails/5.png") center;
+  background-size: cover;
+  padding-left: 3vw;
+  } #six {
+  background: url("videos/thumbnails/6.png") center;
+  background-size: cover;
+  padding-left: 10vw;
+  margin-left: 1vw;
+  } #seven {
+  background: url("videos/thumbnails/7.png") center;
+  background-size: cover;
+  padding-left: 4vw;
+  min-width: 10vw;
+  } #eight {
+  background: url("videos/thumbnails/8.png") center;
+  background-size: cover;
+  padding-left: 3.2vw;
+  } #nine {
+  background: url("videos/thumbnails/9.png") center;
+  background-size: cover;
+  padding-left: 3vw;
+  } #ten {
+  background: url("videos/thumbnails/10.png") center;
+  background-size: cover;
+  padding-left: 8vw;
+  }
+
+
+/* DASHBOARD MEDIA QUERIES */
+@media only screen and (max-width: 650px) {
+  .splash h1, .room audio, .horizontals, #click2 {
+    display: none;
+  }
+  
+  .room {
+  grid-template: 1fr 1fr 1fr / 1fr;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  }
+
+.scenes {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.room h2 {
+  grid-area: 2 / 1 / 3 / -1;
+  margin: 1vh 0vh 2vh 3vw;
+  font-size: 0.28em;
+
+}
+
+
+
+.people {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.scenes, .room, .people {
+  transform: none;
+  margin-left: 0;
+}
+
+.room img {
+  height: 77vh;
+}
+
+  /* 365PARTYGIRL MEDIA QUERIES */
+  .theater {
+    overflow: scroll;
+  }
+
+  .video {
+  grid-area: 1 / 1 / 2 / -1;
+  justify-self: center;
+
+  max-width: 100vw;
+  transform: none;
+}
+
+.theater h7 {
+  grid-area: 2 / 1 / -1 / -1;
+  justify-self: start;
+  font-size: 0.6rem;
+  
+
+  line-height: 18vh;
+  margin-bottom: 3vh;
+}
+
+#two, #three, #four, #six, #seven, #eight, #ten {
+  padding-right: 26vw;
+}
+
+#one, #six {
+  margin-left: -0.3vw;
+}
+
+  /* JOURNAL MEDIA QUERIES */
+  .journal {
+    grid: 100vh / 30vw 70vw;
+  }
+
+  #field {
+  grid-area: 1 / 2 / -1 / 3;
+  font-size: 0.25rem;
+  padding: 0.25rem 0.1rem 1.5rem 0.2rem;
+}
+
+.journal #random {
+    grid-area: 1 / 1 / -1 / 2;
+    width: 20vw;
+    height: 10vh;
+
+    background: url(pictures/30more/june.jpg) -32vh -2vh;
+    margin: 68vh 0vw 0vh 0.1vw;
+
+    color: transparent;
+    border-radius: 10px 100px;
+    z-index: 5;
+  }
+
+  /* OFFICE PARTY PLAYLIST QUERIES */
+.audio li, .audio ul {
+  display: none;
+}
+
+#currentFile {
+  grid-area: 2 / 1 / 3 / -1;
+  margin-bottom: 5vh;
+}
+
+#player {
+  grid-area: 3 / 1 / 4 / -1;
+  align-self: start;
+  margin-bottom: 5vh;
+}
+
+.audio #random {
+  grid-area: 3 / 1 / 5 / -1;
+  color: white;
+  align-self: center;
+  
+  width: 25vw;
+  height: 10vh;
+
+  background: url("pictures/scenes/snowbound\ cropped.jpg") top;
+  background-size: cover;
+}
+
+.bluesky {
+  justify-items: start;
+
+  font-size: 0.13em;
+  letter-spacing: 1.5vh;
+  padding-left: 2vw;
+
+  z-index: 1000;
+  animation: reveal 600ms ease-in-out forwards 2s;
+}
+
+#currentFile {
+  font-size: 0.25rem;
+  align-self: center;
+}
+
+#player {
+  align-self: end;
+}
+
+.audio #random {
+  margin: 6vh 0vw 0vh 0vw;
+  font-size: 0.08rem;
+}
+}
